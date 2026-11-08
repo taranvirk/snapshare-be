@@ -377,6 +377,10 @@ app.get("/getFollowingList/:userID", async function (req, res) {
     res.send(followerList);
 });
 
-app.listen(port, function () {
-    console.log("listening on :" + port);
-});
+if (require.main === module) {
+    app.listen(port, function () {
+        console.log("listening on :" + port);
+    });
+}
+
+module.exports = app;
